@@ -1,3 +1,12 @@
 
+install:
+  - ps: Write-Host "Install R..."
+  - choco install R
+  - ps: Write-Host "R is installed."
+  
+  - ps: Write-Host "Install pandoc..."
+  - choco install pandoc
+  - ps: Write-Host "pandoc is installed"
+
 build_script:
   - ps: .\build.ps1
