@@ -1,4 +1,9 @@
-Write-Host "Start building..."
+Write-Host "EBook creation starts"
+
+Write-Host "Installing R..."
+choco install R
+Write-Host "R is installed."
 
 
-Write-Host "Done with building!"
+
+Write-Host "EBook created!"
