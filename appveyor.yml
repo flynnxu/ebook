@@ -1,5 +1,3 @@
 
-install:
-  - cmd: echo Install R...
-  - choco install R
-  - cmd: echo R installed!
+build_script:
+  - ps: .\build.ps1
