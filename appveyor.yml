@@ -1,0 +1,5 @@
+
+install:
+  - cmd: echo Install R...
+  - choco install R
+  - cmd: echo R installed!
