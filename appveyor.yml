@@ -27,5 +27,6 @@ after_build:
   - git config --global credential.helper store
   - git config --global user.email "flynnxu26@gmail.com"
   - git config --global user.name "Flynn Xu"
+  - git add docs/*
   - git commit -m "publish new book"
   - git push origin head:master
