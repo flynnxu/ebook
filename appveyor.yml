@@ -6,8 +6,10 @@ environment:
 
 init:
   #Good practice because Windows line ending is different from Unix/Linux's
-  - git config --global core.autocrlf true    
-
+  - git config --global core.autocrlf true
+  - git clone -q --branch=master https://github.com/flynnxu/ebook.git C:\projects\ebook
+  - git checkout -qf master
+  
 install:
   - ps: Write-Host "Install R..."
   - choco install R
@@ -31,7 +33,7 @@ install:
 
 build_script:
   - ps: .\build.ps1
-  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+#  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 
 after_build:
   - git config --global credential.helper store
