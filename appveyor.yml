@@ -32,12 +32,12 @@ install:
 build_script:
   - git checkout master
   - ps: .\build.ps1
-  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+#  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 
 after_build:
   - git config --global credential.helper store
   - git config --global user.email "flynnxu26@gmail.com"
   - git config --global user.name "Flynn Xu"
-  - git add docs/*
+  - git add docs
   - git commit -m "publish new book"
   - git push origin head:master
