@@ -1,6 +1,12 @@
 environment:
   APPVEYOR_RDP_PASSWORD: 01Winter
+  access_token: 
+    #086359f1bc9925aaaa2201ddb54d0c058949134c
+    secure: 6pHhti7Lcq3zHI5e5PygVcLF3I3/PqHl0evPtemg3XSiUdivlh9EecDIf6v+Y2gy
 
+init:
+  #Good practice because Windows line ending is different from Unix/Linux's
+  - git config --global core.autocrlf true    
 
 install:
   - ps: Write-Host "Install R..."
