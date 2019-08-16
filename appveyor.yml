@@ -7,8 +7,6 @@ environment:
 init:
   #Good practice because Windows line ending is different from Unix/Linux's
   - git config --global core.autocrlf true
-  - git clone -q --branch=master https://github.com/flynnxu/ebook.git C:\projects\ebook
-  - git checkout -qf master
   
 install:
   - ps: Write-Host "Install R..."
