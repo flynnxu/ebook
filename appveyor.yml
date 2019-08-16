@@ -1,7 +1,7 @@
 environment:
   APPVEYOR_RDP_PASSWORD: 01Winter
-  access_token:
-    secure: QVoon9z5xCn7L2D26kuFt6Wkdcwu2kTDdtcvvrduY8w1LnBSGqnPGlQ2OL2oq39J
+  access_token: 0771a2440a0650db4fa29351e0a1dfe1d760527e
+#    secure: QVoon9z5xCn7L2D26kuFt6Wkdcwu2kTDdtcvvrduY8w1LnBSGqnPGlQ2OL2oq39J
     
     #0771a2440a0650db4fa29351e0a1dfe1d760527e
 init:
