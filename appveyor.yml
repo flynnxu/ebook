@@ -1,7 +1,7 @@
 environment:
   APPVEYOR_RDP_PASSWORD: 01Winter
   access_token: 
-    secure: QVoon9z5xCn7L2D26kuFt6Wkdcwu2kTDdtcvvrduY8w1LnBSGqnPGlQ2OL2oq39J
+    secure: SnaNRwIGWYKcmu03pJAZl489Muy8SNV99pPH5kxqs8BW3bF1VxSsQF4xP54JghUd
 init:
   #Good practice because Windows line ending is different from Unix/Linux's
   - git config --global core.autocrlf true
