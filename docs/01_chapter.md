@@ -44,8 +44,7 @@ We can emphasize text by using **bold** or *italics*
 
 We can embed R code in blocks. The blocks can either be run (evaluated) or just printed:
 
-
-```r
+```{r-setup, eval=FALSE}
 # install.packages('reticulate')
 library(reticulate)
 use_python("~/anaconda3/bin/python") # use anaconda python on Mac

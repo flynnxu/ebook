@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>1 This is a section | Template</title>
   <meta name="description" content="This is a template for a bookdown website" />
-  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
 
   <meta property="og:title" content="1 This is a section | Template" />
   <meta property="og:type" content="book" />
@@ -21,7 +21,6 @@
   <meta name="twitter:description" content="This is a template for a bookdown website" />
   
 
-<meta name="author" content="" />
 
 
 
@@ -30,8 +29,9 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html">
+<link rel="prev" href="index.html"/>
 
+<script src="libs/header-attrs-2.1/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -39,6 +39,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -49,18 +52,17 @@
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -80,7 +82,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -125,12 +127,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a>
+<ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#table-of-contents"><i class="fa fa-check"></i>Table of Contents</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#authors-and-sources"><i class="fa fa-check"></i>Authors and Sources</a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="this-is-a-section.html"><a href="this-is-a-section.html"><i class="fa fa-check"></i><b>1</b> This is a section</a><ul>
-<li class="chapter" data-level="1.1" data-path="this-is-a-section.html"><a href="this-is-a-section.html#this-is-a-subsection"><i class="fa fa-check"></i><b>1.1</b> This is a subsection</a><ul>
+<li class="chapter" data-level="1" data-path="this-is-a-section.html"><a href="this-is-a-section.html"><i class="fa fa-check"></i><b>1</b> This is a section</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="this-is-a-section.html"><a href="this-is-a-section.html#this-is-a-subsection"><i class="fa fa-check"></i><b>1.1</b> This is a subsection</a>
+<ul>
 <li class="chapter" data-level="1.1.1" data-path="this-is-a-section.html"><a href="this-is-a-section.html#this-is-a-subsubsection"><i class="fa fa-check"></i><b>1.1.1</b> This is a subsubsection</a></li>
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="this-is-a-section.html"><a href="this-is-a-section.html#lists"><i class="fa fa-check"></i><b>1.2</b> Lists</a></li>
@@ -154,20 +159,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="this-is-a-section" class="section level1">
+<div id="this-is-a-section" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> This is a section</h1>
 <p>Here’s how we embed an image:</p>
 <p><img src="images/readme-license.png" /></p>
 <p>And here’s how we embed a URL <a href="https://dss.iq.harvard.edu/">DSS</a>.</p>
-<div id="this-is-a-subsection" class="section level2">
+<div id="this-is-a-subsection" class="section level2" number="1.1">
 <h2><span class="header-section-number">1.1</span> This is a subsection</h2>
 <p>Text for my subsection.</p>
-<div id="this-is-a-subsubsection" class="section level3">
+<div id="this-is-a-subsubsection" class="section level3" number="1.1.1">
 <h3><span class="header-section-number">1.1.1</span> This is a subsubsection</h3>
 <p>Text for my subsubsection.</p>
 </div>
 </div>
-<div id="lists" class="section level2">
+<div id="lists" class="section level2" number="1.2">
 <h2><span class="header-section-number">1.2</span> Lists</h2>
 <p>This is a numbered list:</p>
 <ol style="list-style-type: decimal">
@@ -198,21 +203,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul>
 </div>
-<div id="text-emphasis" class="section level2">
+<div id="text-emphasis" class="section level2" number="1.3">
 <h2><span class="header-section-number">1.3</span> Text emphasis</h2>
 <p>We can emphasize text by using <strong>bold</strong> or <em>italics</em></p>
 </div>
-<div id="embedding-code" class="section level2">
+<div id="embedding-code" class="section level2" number="1.4">
 <h2><span class="header-section-number">1.4</span> Embedding code</h2>
 <p>We can embed R code in blocks. The blocks can either be run (evaluated) or just printed:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="this-is-a-section.html#cb1-1"></a><span class="co"># install.packages(&#39;reticulate&#39;)</span></span>
-<span id="cb1-2"><a href="this-is-a-section.html#cb1-2"></a><span class="kw">library</span>(reticulate)</span>
-<span id="cb1-3"><a href="this-is-a-section.html#cb1-3"></a><span class="kw">use_python</span>(<span class="st">&quot;~/anaconda3/bin/python&quot;</span>) <span class="co"># use anaconda python on Mac</span></span>
-<span id="cb1-4"><a href="this-is-a-section.html#cb1-4"></a><span class="kw">use_python</span>(<span class="st">&quot;C:/Users/&lt;username&gt;/Anaconda3/python.exe&quot;</span>) <span class="co"># use anaconda python on Windows</span></span></code></pre></div>
+<p><code>{r-setup, eval=FALSE} # install.packages('reticulate') library(reticulate) use_python("~/anaconda3/bin/python") # use anaconda python on Mac use_python("C:/Users/&lt;username&gt;/Anaconda3/python.exe") # use anaconda python on Windows</code></p>
 <p>We can also <a href="https://rstudio.github.io/reticulate/articles/r_markdown.html">embed Python code blocks within Rmarkdown</a> using the <code>reticulate</code> package, once it is <a href="https://rstudio.github.io/reticulate/index.html">installed</a>.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="this-is-a-section.html#cb2-1"></a>flights <span class="op">=</span> pandas.read.csv(<span class="st">&#39;flights.csv&#39;</span>)</span>
-<span id="cb2-2"><a href="this-is-a-section.html#cb2-2"></a>flights <span class="op">=</span> flights[flights[<span class="st">&#39;dest&#39;</span>] <span class="op">==</span> <span class="st">&#39;ORD&#39;</span>]</span>
-<span id="cb2-3"><a href="this-is-a-section.html#cb2-3"></a>flights <span class="op">=</span> flights.dropna()</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="this-is-a-section.html#cb1-1"></a>flights <span class="op">=</span> pandas.read.csv(<span class="st">&#39;flights.csv&#39;</span>)</span>
+<span id="cb1-2"><a href="this-is-a-section.html#cb1-2"></a>flights <span class="op">=</span> flights[flights[<span class="st">&#39;dest&#39;</span>] <span class="op">==</span> <span class="st">&#39;ORD&#39;</span>]</span>
+<span id="cb1-3"><a href="this-is-a-section.html#cb1-3"></a>flights <span class="op">=</span> flights.dropna()</span></code></pre></div>
 <p>Or we can format code inline (not evaluated): <code>print()</code></p>
 
 </div>
@@ -228,11 +230,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -240,12 +244,11 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -257,6 +260,10 @@ gitbook.start({
 "text": null
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },

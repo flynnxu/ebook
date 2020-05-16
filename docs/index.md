@@ -1,7 +1,7 @@
 ---
 title: "Template"
 author: ""
-date: "August 2019"
+date: "May 2020"
 description: "This is a template for a bookdown website"
 github-repo: "IQSS/dss-template"
 site: "bookdown::bookdown_site"
