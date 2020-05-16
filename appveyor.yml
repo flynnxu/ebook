@@ -29,7 +29,7 @@ install:
 
 build_script:
   - git checkout master
-  - cmd: "C:\\\\"Program Files\"\\R\\R-4.0.0\\bin\\rscript.exe -e \"bookdown::render_book('index.Rmd', 'bookdown::gitbook')\""
+  - cmd: "C:\\\"Program Files\"\\R\\R-4.0.0\\bin\\rscript.exe -e \"bookdown::render_book('index.Rmd', 'bookdown::gitbook')\""
 #  - ps: .\build.ps1
 #  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 
