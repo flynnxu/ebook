@@ -15,7 +15,7 @@ install:
   - choco install pandoc
   - ps: Write-Host "pandoc is installed"
   
-  - cmd: "C:\\Program Files\\R\\R-4.0.0\\bin\\rscript.exe" --help
+  - cmd: "C:\\Program Files\\R\\R-4.0.0\\bin\\rscript.exe --help"
   
   - ps: Write-Host "Install rmarkdown..."
   - cmd: "C:\\Program Files\\R\\R-4.0.0\\bin\\rscript.exe" -e "install.packages('rmarkdown', repos='https://cran.case.edu/')"
