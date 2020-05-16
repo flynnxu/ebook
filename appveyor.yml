@@ -15,19 +15,17 @@ install:
   - choco install pandoc
   - ps: Write-Host "pandoc is installed"
   
-  - cmd: "C:\\\"Program Files\"\\R\\R-4.0.0\\bin\\rscript.exe --help"
-  
   - ps: Write-Host "Install rmarkdown..."
   - cmd: "C:\\\"Program Files\"\\R\\R-4.0.0\\bin\\rscript.exe -e \"install.packages('rmarkdown', repos='https://cran.case.edu/')\""
   - ps: Write-Host "rmarkdown is installed"
   
-#  - ps: Write-Host "Install bookdown..."
-#  - ps: & "C:\Program Files\R\R-3.6.1\bin\rscript.exe" -e "install.packages('bookdown', repos='http://cran.case.edu/')"
-#  - ps: Write-Host "bookdown is installed"
+  - ps: Write-Host "Install bookdown..."
+  - cmd: "C:\\\"Program Files\"\\R\\R-4.0.0\\bin\\rscript.exe -e \"install.packages('bookdown', repos='https://cran.case.edu/')\""
+  - ps: Write-Host "bookdown is installed"
 
-#  - ps: Write-Host "Install reticulate..."
-#  - ps: & "C:\\Program Files\\R\\R-3.6.1\\bin\\rscript.exe" -e "install.packages('reticulate', repos='http://cran.case.edu/')"
-#  - ps: Write-Host "reticulate is installed"  
+  - ps: Write-Host "Install reticulate..."
+  - cmd: "C:\\\"Program Files\"\\R\\R-4.0.0\\bin\\rscript.exe -e \"install.packages('reticulate', repos='https://cran.case.edu/')\""
+  - ps: Write-Host "reticulate is installed"  
 
 build_script:
   - git checkout master
