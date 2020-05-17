@@ -1,44 +1,68 @@
+#+++++++++++++++++++++++++++++++
+#     General Configuration
+#+++++++++++++++++++++++++++++++
+
+# version format
+version: 1.0.{build}
+
+# We only generate /Docs when .rmd files are changed.
+only_commits:
+  files:
+    - '**/*.rmd'
+
+#+++++++++++++++++++++++++++++++
+#   Environment Configuration
+#+++++++++++++++++++++++++++++++
+
+# environment variables
 environment:
-  APPVEYOR_RDP_PASSWORD: 01Winter
+  APPVEYOR_RDP_PASSWORD: RDPPwd # used for debug purpose - RDP VM login password.
   access_token: 
     secure: SnaNRwIGWYKcmu03pJAZl489Muy8SNV99pPH5kxqs8BW3bF1VxSsQF4xP54JghUd
-init:
-  #Good practice because Windows line ending is different from Unix/Linux's
-  - git config --global core.autocrlf true
-  
+
+# scripts that are called at very beginning, before repo cloning    
+init:  
+  - git config --global core.autocrlf true #Good practice because Windows line ending is different from Unix/Linux's
+
+# Software and packages needed to do R-Markdown
 install:
-  - ps: Write-Host "Install R..."
+  - cmd: echo Installing R...
   - choco install R --version=3.6.1
-  - ps: Write-Host "R is installed."
+  - cmd: echo R is installed!
   
-  - ps: Write-Host "Install pandoc..."
+  - cmd: echo Installing pandoc...
   - choco install pandoc
-  - ps: Write-Host "pandoc is installed"
+  - cmd: echo pandoc is installed!
   
-  - ps: Write-Host "Install rmarkdown..."
+  - cmd: echo Installing R package 'rmarkdown'...
   - cmd: "C:\\\"Program Files\"\\R\\R-3.6.1\\bin\\rscript.exe -e \"install.packages('rmarkdown', repos='https://cran.rstudio.com/')\""
-  - ps: Write-Host "rmarkdown is installed"
+  - cmd: echo 'rmarkdown' is installed!
   
-  - ps: Write-Host "Install bookdown..."
+  - cmd: echo Installing R package 'bookdown'...
   - cmd: "C:\\\"Program Files\"\\R\\R-3.6.1\\bin\\rscript.exe -e \"install.packages('bookdown', repos='https://cran.rstudio.com/')\""
-  - ps: Write-Host "bookdown is installed"
+  - cmd: echo 'bookdown' is installed!
 
-  - ps: Write-Host "Install reticulate..."
+  - cmd: echo Installing R package 'reticulate'...
   - cmd: "C:\\\"Program Files\"\\R\\R-3.6.1\\bin\\rscript.exe -e \"install.packages('reticulate', repos='https://cran.rstudio.com/')\""
-  - ps: Write-Host "reticulate is installed"  
+  - cmd: echo 'reticulate' is installed!  
 
+#+++++++++++++++++++++++++++++++
+#   Building Process
+#+++++++++++++++++++++++++++++++
+
+# Building settings
 build_script:
   - git checkout master
   - cmd: "C:\\\"Program Files\"\\R\\R-3.6.1\\bin\\rscript.exe -e \"bookdown::render_book('index.Rmd', 'bookdown::gitbook')\""
-#  - ps: .\build.ps1
 #  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 
+# Logic after a successful build
 on_success:
   - git config --global credential.helper store
   - ps: Add-Content "$HOME\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"  
   - git config --global user.email "flynnxu26@gmail.com"
   - git config --global user.name "flynnxu"
   - git add docs
-  - git commit -m "[skip appveyor]"
+  - git commit -m "[skip appveyor] Publish tutorial"
   #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
   - git push origin head:master
