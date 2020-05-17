@@ -39,6 +39,6 @@ on_success:
   - git config --global user.email "flynnxu26@gmail.com"
   - git config --global user.name "flynnxu"
   - git add docs
-  - git commit -m "publish new book"
+  - git commit -m "[skip appveyor]"
   #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
   - git push origin head:master
