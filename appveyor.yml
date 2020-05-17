@@ -8,7 +8,7 @@ init:
   
 install:
   - ps: Write-Host "Install R..."
-  - choco install R
+  - choco install R --version=3.6.1
   - ps: Write-Host "R is installed."
   
   - ps: Write-Host "Install pandoc..."
