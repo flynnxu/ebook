@@ -16,20 +16,20 @@ install:
   - ps: Write-Host "pandoc is installed"
   
   - ps: Write-Host "Install rmarkdown..."
-  - cmd: "C:\\\"Program Files\"\\R\\R-4.0.0\\bin\\rscript.exe -e \"install.packages('rmarkdown', repos='https://cran.rstudio.com/')\""
+  - cmd: "C:\\\"Program Files\"\\R\\R-3.6.1\\bin\\rscript.exe -e \"install.packages('rmarkdown', repos='https://cran.rstudio.com/')\""
   - ps: Write-Host "rmarkdown is installed"
   
   - ps: Write-Host "Install bookdown..."
-  - cmd: "C:\\\"Program Files\"\\R\\R-4.0.0\\bin\\rscript.exe -e \"install.packages('bookdown', repos='https://cran.rstudio.com/')\""
+  - cmd: "C:\\\"Program Files\"\\R\\R-3.6.1\\bin\\rscript.exe -e \"install.packages('bookdown', repos='https://cran.rstudio.com/')\""
   - ps: Write-Host "bookdown is installed"
 
   - ps: Write-Host "Install reticulate..."
-  - cmd: "C:\\\"Program Files\"\\R\\R-4.0.0\\bin\\rscript.exe -e \"install.packages('reticulate', repos='https://cran.rstudio.com/')\""
+  - cmd: "C:\\\"Program Files\"\\R\\R-3.6.1\\bin\\rscript.exe -e \"install.packages('reticulate', repos='https://cran.rstudio.com/')\""
   - ps: Write-Host "reticulate is installed"  
 
 build_script:
   - git checkout master
-  - cmd: "C:\\\"Program Files\"\\R\\R-4.0.0\\bin\\rscript.exe -e \"bookdown::render_book('index.Rmd', 'bookdown::gitbook')\""
+  - cmd: "C:\\\"Program Files\"\\R\\R-3.6.1\\bin\\rscript.exe -e \"bookdown::render_book('index.Rmd', 'bookdown::gitbook')\""
 #  - ps: .\build.ps1
 #  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 
