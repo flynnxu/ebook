@@ -9,6 +9,7 @@ version: 1.0.{build}
 only_commits:
   files:
     - '**/*.rmd'
+    - _bookdown.yml
 
 #+++++++++++++++++++++++++++++++
 #   Environment Configuration
@@ -47,7 +48,7 @@ install:
   - cmd: echo 'reticulate' is installed!  
 
 #+++++++++++++++++++++++++++++++
-#   Building Process
+#       Building Process
 #+++++++++++++++++++++++++++++++
 
 # Building settings
@@ -55,6 +56,10 @@ build_script:
   - git checkout master
   - cmd: "C:\\\"Program Files\"\\R\\R-3.6.1\\bin\\rscript.exe -e \"bookdown::render_book('index.Rmd', 'bookdown::gitbook')\""
 #  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+
+#+++++++++++++++++++++++++++++++
+#        Global Handler
+#+++++++++++++++++++++++++++++++
 
 # Logic after a successful build
 on_success:
