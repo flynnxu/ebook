@@ -2,7 +2,7 @@ book_filename: 'template'
  
 output_dir: docs
 
-repo: https://github.com/IQSS/dss-template
+repo: https://github.com/flynnxu/ebook
 
 rmd_files:
   - "index.Rmd"
