@@ -3,7 +3,7 @@ title: "Template"
 author: ""
 date: "May 2020"
 description: "This is a template for a bookdown website"
-github-repo: "IQSS/dss-template"
+github-repo: "flynnxu/ebook"
 site: "bookdown::bookdown_site"
 documentclass: book
 geometry: "margin=1.5in"
