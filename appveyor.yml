@@ -47,7 +47,8 @@ install:
   - cmd: "C:\\\"Program Files\"\\R\\R-3.6.1\\bin\\rscript.exe -e \"install.packages('reticulate', repos='https://cran.rstudio.com/')\""
   - cmd: echo 'reticulate' is installed!  
 
-  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+  - cmd: "C:\\Python37-x64\\Scripts\\pip.exe install requests"
+#  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 
 #+++++++++++++++++++++++++++++++
 #       Building Process
