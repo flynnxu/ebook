@@ -16,7 +16,7 @@ only_commits:
 
 # environment variables
 environment:
-  APPVEYOR_RDP_PASSWORD: RDPPwd
+  APPVEYOR_RDP_PASSWORD: RDPPwd20
 #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
   access_token: 
     secure: SnaNRwIGWYKcmu03pJAZl489Muy8SNV99pPH5kxqs8BW3bF1VxSsQF4xP54JghUd
