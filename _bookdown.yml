@@ -7,6 +7,7 @@ repo: https://github.com/flynnxu/ebook
 rmd_files:
   - "index.Rmd"
   - "01_chapter.Rmd"
+  - "chapter_2.Rmd"
 
 delete_merged_file: true
 
