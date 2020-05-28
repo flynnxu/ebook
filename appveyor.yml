@@ -32,7 +32,7 @@ install:
   - cmd: echo R is installed!
   
   - cmd: echo Installing pandoc...
-  - choco install pandoc
+  - choco install pandoc --version=2.7.3
   - cmd: echo pandoc is installed!
   
   - cmd: echo Installing R package 'rmarkdown'...
