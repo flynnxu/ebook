@@ -28,6 +28,10 @@ firstEntry_link = search_html.xpath('//*[@id="results"]/table')
 print(firstEntry_link)
 ```
 
+```
+## []
+```
+
 The example scraper here has failed to extract results since the `xpath()` method returns an empty list. Examining the source code of this web page can help you understand why. Let us put the mouse anywhere on this webpage. Right-click the mouse and click **View page source** from the menu to examine the source code. Here, we find that the `<div>` element with `ID “results”` is empty. 
 
 | **Figure I-1.3** |
@@ -120,6 +124,10 @@ page_link = search_html.xpath('//*[@id="next"]')
 print(page_link)
 ```
 
+```
+## []
+```
+
 Let us examine the **page source code** to see why. Here, we find that the `<div>` element with `ID “pagination”` is empty. If we scroll down the source code to the end, we can find that the display of the page links is coded in a JavaScript function `displayResult(jsonresult)` in the JavaScript section. This means that the web page has used JavaScript to load the page links and insert it at the position of the `<div>` element with `ID “pagination”` in the original HTML. We could see the revised HTML after running the JavaScript code in the **Elements** window. 
 
 | **Figure I-3.2** |
@@ -139,6 +147,10 @@ searchLoad_page = requests.get(searchLoad_url)
 searchLoad_html = html.fromstring(searchLoad_page.text)
 entries_link = searchLoad_html.xpath('//*[@id="resultstable"]/tbody/tr')
 print(page_link)
+```
+
+```
+## []
 ```
 
 **Figure I-3.4** illustrates the result table part of code in the original HTML from the **page source code**. **Figure I-3.5** highlights the same part of code in the revised HTML from the **Elements** window after it executes the JavaScript code. It is clear to see that there is no information under the tag name `<tbody>` in **Figure I-3.4**. This explains why the `xpath()` method returns an empty list. In **Figure I-3.5**, the webpage runs the JavaScript to insert the first chunk of the students’ information into the empty result table that has been created statically before running the JavaScript and then display it in the browser.  

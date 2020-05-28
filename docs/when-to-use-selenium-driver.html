@@ -207,6 +207,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb34-6"><a href="when-to-use-selenium-driver.html#cb34-6"></a>search_html <span class="op">=</span> html.fromstring(search_page.text)</span>
 <span id="cb34-7"><a href="when-to-use-selenium-driver.html#cb34-7"></a>firstEntry_link <span class="op">=</span> search_html.xpath(<span class="st">&#39;//*[@id=&quot;results&quot;]/table&#39;</span>)</span>
 <span id="cb34-8"><a href="when-to-use-selenium-driver.html#cb34-8"></a><span class="bu">print</span>(firstEntry_link)</span></code></pre></div>
+<pre><code>## []</code></pre>
 <p>The example scraper here has failed to extract results since the <code>xpath()</code> method returns an empty list. Examining the source code of this web page can help you understand why. Let us put the mouse anywhere on this webpage. Right-click the mouse and click <strong>View page source</strong> from the menu to examine the source code. Here, we find that the <code>&lt;div&gt;</code> element with <code>ID “results”</code> is empty.</p>
 <table>
 <thead>
@@ -302,15 +303,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 <p>We can also see this difference using the requests module, which was also covered in detail in the Python Web-Scraping Workshop.</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb35-1"><a href="when-to-use-selenium-driver.html#cb35-1"></a>staticLink_url <span class="op">=</span> <span class="st">&quot;https://iqssdss2020.pythonanywhere.com/tutorial/static/views/Adams.html&quot;</span></span>
-<span id="cb35-2"><a href="when-to-use-selenium-driver.html#cb35-2"></a>staticLink_page <span class="op">=</span> requests.get(staticLink_url)</span>
-<span id="cb35-3"><a href="when-to-use-selenium-driver.html#cb35-3"></a>staticLink_html <span class="op">=</span> html.fromstring(staticLink_page.text)</span>
-<span id="cb35-4"><a href="when-to-use-selenium-driver.html#cb35-4"></a>html.open_in_browser(staticLink_html, encoding <span class="op">=</span> <span class="st">&#39;UTF-8&#39;</span>)</span>
-<span id="cb35-5"><a href="when-to-use-selenium-driver.html#cb35-5"></a></span>
-<span id="cb35-6"><a href="when-to-use-selenium-driver.html#cb35-6"></a>dynamicLink_url <span class="op">=</span> <span class="st">&quot;https://iqssdss2020.pythonanywhere.com/tutorial/cases/getstudent/Adams&quot;</span></span>
-<span id="cb35-7"><a href="when-to-use-selenium-driver.html#cb35-7"></a>dynamicLink_page <span class="op">=</span> requests.get(dynamicLink_url)</span>
-<span id="cb35-8"><a href="when-to-use-selenium-driver.html#cb35-8"></a>dynamicLink_html <span class="op">=</span> html.fromstring(dynamicLink_page.text)</span>
-<span id="cb35-9"><a href="when-to-use-selenium-driver.html#cb35-9"></a>html.open_in_browser(dynamicLink_html, encoding <span class="op">=</span> <span class="st">&#39;UTF-8&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb36-1"><a href="when-to-use-selenium-driver.html#cb36-1"></a>staticLink_url <span class="op">=</span> <span class="st">&quot;https://iqssdss2020.pythonanywhere.com/tutorial/static/views/Adams.html&quot;</span></span>
+<span id="cb36-2"><a href="when-to-use-selenium-driver.html#cb36-2"></a>staticLink_page <span class="op">=</span> requests.get(staticLink_url)</span>
+<span id="cb36-3"><a href="when-to-use-selenium-driver.html#cb36-3"></a>staticLink_html <span class="op">=</span> html.fromstring(staticLink_page.text)</span>
+<span id="cb36-4"><a href="when-to-use-selenium-driver.html#cb36-4"></a>html.open_in_browser(staticLink_html, encoding <span class="op">=</span> <span class="st">&#39;UTF-8&#39;</span>)</span>
+<span id="cb36-5"><a href="when-to-use-selenium-driver.html#cb36-5"></a></span>
+<span id="cb36-6"><a href="when-to-use-selenium-driver.html#cb36-6"></a>dynamicLink_url <span class="op">=</span> <span class="st">&quot;https://iqssdss2020.pythonanywhere.com/tutorial/cases/getstudent/Adams&quot;</span></span>
+<span id="cb36-7"><a href="when-to-use-selenium-driver.html#cb36-7"></a>dynamicLink_page <span class="op">=</span> requests.get(dynamicLink_url)</span>
+<span id="cb36-8"><a href="when-to-use-selenium-driver.html#cb36-8"></a>dynamicLink_html <span class="op">=</span> html.fromstring(dynamicLink_page.text)</span>
+<span id="cb36-9"><a href="when-to-use-selenium-driver.html#cb36-9"></a>html.open_in_browser(dynamicLink_html, encoding <span class="op">=</span> <span class="st">&#39;UTF-8&#39;</span>)</span></code></pre></div>
 <p>The requests module cannot execute JavaScript code. As the code above illustrates, it behaves the same as a browser whose JavaScript functionality is disabled.</p>
 <p>Examining the source code of the chosen student’s profile web page of both the static and dynamic links can help you further understand why. The source code of the profile web page of a static link shows a complete html file without a JavaScript section.</p>
 <table>
@@ -356,11 +357,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 <p>In this case, the value of the <code>href</code> attribute is not an URL (The Uniform Resource Locator). So, there is no point to try to test if this is a static or dynamic link using the requests module as what we do in <strong>Section I-2</strong>. But we can illustrate the dynamic load using the lxml module. The code below tries to scrape the page link information using the lxml module. The scraper here has failed to extract the page links since the <code>xpath()</code> method returns an empty list.</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb36-1"><a href="when-to-use-selenium-driver.html#cb36-1"></a>search_url <span class="op">=</span> <span class="st">&quot;https://iqssdss2020.pythonanywhere.com/tutorial/cases/search&quot;</span></span>
-<span id="cb36-2"><a href="when-to-use-selenium-driver.html#cb36-2"></a>search_page <span class="op">=</span> requests.get(search_url)</span>
-<span id="cb36-3"><a href="when-to-use-selenium-driver.html#cb36-3"></a>search_html <span class="op">=</span> html.fromstring(search_page.text)</span>
-<span id="cb36-4"><a href="when-to-use-selenium-driver.html#cb36-4"></a>page_link <span class="op">=</span> search_html.xpath(<span class="st">&#39;//*[@id=&quot;next&quot;]&#39;</span>)</span>
-<span id="cb36-5"><a href="when-to-use-selenium-driver.html#cb36-5"></a><span class="bu">print</span>(page_link)</span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb37-1"><a href="when-to-use-selenium-driver.html#cb37-1"></a>search_url <span class="op">=</span> <span class="st">&quot;https://iqssdss2020.pythonanywhere.com/tutorial/cases/search&quot;</span></span>
+<span id="cb37-2"><a href="when-to-use-selenium-driver.html#cb37-2"></a>search_page <span class="op">=</span> requests.get(search_url)</span>
+<span id="cb37-3"><a href="when-to-use-selenium-driver.html#cb37-3"></a>search_html <span class="op">=</span> html.fromstring(search_page.text)</span>
+<span id="cb37-4"><a href="when-to-use-selenium-driver.html#cb37-4"></a>page_link <span class="op">=</span> search_html.xpath(<span class="st">&#39;//*[@id=&quot;next&quot;]&#39;</span>)</span>
+<span id="cb37-5"><a href="when-to-use-selenium-driver.html#cb37-5"></a><span class="bu">print</span>(page_link)</span></code></pre></div>
+<pre><code>## []</code></pre>
 <p>Let us examine the <strong>page source code</strong> to see why. Here, we find that the <code>&lt;div&gt;</code> element with <code>ID “pagination”</code> is empty. If we scroll down the source code to the end, we can find that the display of the page links is coded in a JavaScript function <code>displayResult(jsonresult)</code> in the JavaScript section. This means that the web page has used JavaScript to load the page links and insert it at the position of the <code>&lt;div&gt;</code> element with <code>ID “pagination”</code> in the original HTML. We could see the revised HTML after running the JavaScript code in the <strong>Elements</strong> window.</p>
 <table>
 <thead>
@@ -387,11 +389,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 <p>Now let us examine the second way of design – scroll down to the bottom of page – to load the new content. Let us look at another example web page, which is available at <a href="https://iqssdss2020.pythonanywhere.com/tutorial/casesLoad/search">dynamic search load</a>. This webpage is the same as the previous example webpage except it uses scrolling bar down instead of clicking page link to load the new content. The code below tries to scrap the information of the result table’s entries using the lxml module. The scraper here has failed to extract those information since the <code>xpath()</code> method returns an empty list.</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb37-1"><a href="when-to-use-selenium-driver.html#cb37-1"></a>searchLoad_url <span class="op">=</span> <span class="st">&quot;https://iqssdss2020.pythonanywhere.com/tutorial/casesLoad/search&quot;</span></span>
-<span id="cb37-2"><a href="when-to-use-selenium-driver.html#cb37-2"></a>searchLoad_page <span class="op">=</span> requests.get(searchLoad_url)</span>
-<span id="cb37-3"><a href="when-to-use-selenium-driver.html#cb37-3"></a>searchLoad_html <span class="op">=</span> html.fromstring(searchLoad_page.text)</span>
-<span id="cb37-4"><a href="when-to-use-selenium-driver.html#cb37-4"></a>entries_link <span class="op">=</span> searchLoad_html.xpath(<span class="st">&#39;//*[@id=&quot;resultstable&quot;]/tbody/tr&#39;</span>)</span>
-<span id="cb37-5"><a href="when-to-use-selenium-driver.html#cb37-5"></a><span class="bu">print</span>(page_link)</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb39-1"><a href="when-to-use-selenium-driver.html#cb39-1"></a>searchLoad_url <span class="op">=</span> <span class="st">&quot;https://iqssdss2020.pythonanywhere.com/tutorial/casesLoad/search&quot;</span></span>
+<span id="cb39-2"><a href="when-to-use-selenium-driver.html#cb39-2"></a>searchLoad_page <span class="op">=</span> requests.get(searchLoad_url)</span>
+<span id="cb39-3"><a href="when-to-use-selenium-driver.html#cb39-3"></a>searchLoad_html <span class="op">=</span> html.fromstring(searchLoad_page.text)</span>
+<span id="cb39-4"><a href="when-to-use-selenium-driver.html#cb39-4"></a>entries_link <span class="op">=</span> searchLoad_html.xpath(<span class="st">&#39;//*[@id=&quot;resultstable&quot;]/tbody/tr&#39;</span>)</span>
+<span id="cb39-5"><a href="when-to-use-selenium-driver.html#cb39-5"></a><span class="bu">print</span>(page_link)</span></code></pre></div>
+<pre><code>## []</code></pre>
 <p><strong>Figure I-3.4</strong> illustrates the result table part of code in the original HTML from the <strong>page source code</strong>. <strong>Figure I-3.5</strong> highlights the same part of code in the revised HTML from the <strong>Elements</strong> window after it executes the JavaScript code. It is clear to see that there is no information under the tag name <code>&lt;tbody&gt;</code> in <strong>Figure I-3.4</strong>. This explains why the <code>xpath()</code> method returns an empty list. In <strong>Figure I-3.5</strong>, the webpage runs the JavaScript to insert the first chunk of the students’ information into the empty result table that has been created statically before running the JavaScript and then display it in the browser.</p>
 <table>
 <thead>
