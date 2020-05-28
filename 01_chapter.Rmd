@@ -20,7 +20,7 @@ There are three approaches to extracting data from a static webpage that has bee
 ### Regular Expressions
 Regular expressions directly work on a downloaded web page with no need of parsing it into a certain format and try to match the content of the part of the HTML that contains the data you want to scrape from. There is a thorough overview of regular expressions [here](https://docs.python.org/3.8/howto/regex.html). In this example, we need to match the `<td class="w2p_fw">` tag to scrape the student name. But this tag is used for multiple student profile attributes. To isolate the name, we select the first element, as shown in the code below. 
 
-```{python, eval=TRUE, engine.path='c:\Python37-x64'}
+```{python, eval=TRUE, engine.path='c:\\Python37-x64\\'}
 import re
 import requests
 
